@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/categoryManagementView"
+        android:background="#FFFFFF"> <!-- White background -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/categoryManagementTitle_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/> <!-- Black text -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addCategoriesButtonSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/addCategoryButton"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="16dp"
+                android:backgroundTint="#CCCCCC" /> <!-- Light grey button background -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Add new category"
+                android:textSize="16sp"
+                android:textColor="#000000"/> <!-- Black text -->
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:text="Show categories here"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</merge>
