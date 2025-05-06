@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="20dp">
+
+<TextView
+    android:id="@+id/tv_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Filter"
+    android:textStyle="bold"
+    android:textSize="18sp"
+    android:textColor="@android:color/holo_blue_dark"
+    android:gravity="left" />
+
+<TextView
+    android:id="@+id/tv_instruction"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Select date to filter"
+    android:textColor="@android:color/holo_blue_dark"
+    android:textStyle="bold"
+    android:paddingTop="10dp"
+    android:textSize="14sp"
+    android:gravity="left" />
+
+    <TextView
+        android:id="@+id/from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="From:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:textSize="14sp"
+        android:gravity="left" />
+
+    <Spinner
+        android:id="@+id/fromdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select date to filter"
+        android:spinnerMode="dropdown"
+        android:gravity="left"/>
+    <TextView
+        android:id="@+id/To"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:textSize="14sp"
+        android:gravity="left" />
+    <Spinner
+        android:id="@+id/todate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select date to filter"
+        android:spinnerMode="dropdown"
+        android:gravity="left"/>
+
+    <Button
+    android:id="@+id/btn_next"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Filter"
+    android:backgroundTint="@android:color/holo_blue_dark"
+    android:textColor="@android:color/white"
+    android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Records found:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:textSize="14sp"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/gross"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Groceries:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:gravity="start" />
+
+        <Button
+            android:id="@+id/gross_download_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/trans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transport"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:textSize="14sp"
+        android:gravity="left" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/entertain"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Entertainment:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:gravity="start" />
+
+        <Button
+            android:id="@+id/entertain_download_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</LinearLayout>
