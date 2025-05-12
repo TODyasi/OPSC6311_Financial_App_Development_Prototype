@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713858658917",
+    "project_id": "opsc-budget-tracker-app",
+    "storage_bucket": "opsc-budget-tracker-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713858658917:android:3babd4ae84b15d8a300c8c",
+        "android_client_info": {
+          "package_name": "com.example.opsc_6311_poe_prototype_v2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4NH21_bYxhkx9fuClu_CeGMM0IDW1iAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

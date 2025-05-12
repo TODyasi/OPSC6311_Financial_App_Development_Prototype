@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OPSC_6311_POE_PROTOTYPE_V.2</string>
+    <string-array name="category_names_array">
+        <item>Category 1</item>
+        <item>Category 2</item>
+        <item>Category 3</item>
+        <item>Category 4</item>
+    </string-array>
+</resources>
