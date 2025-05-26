@@ -34,41 +34,6 @@
             android:layout_gravity="center_horizontal"
             android:paddingBottom="24dp"/>
 
-        <!-- Username -->
-        <EditText
-            android:id="@+id/userNameText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:padding="12dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Password -->
-        <EditText
-            android:id="@+id/passwordText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:padding="12dp"
-            android:inputType="textPassword"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_marginBottom="12dp" />
-
-        <!-- Email -->
-        <EditText
-            android:id="@+id/emailText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:padding="12dp"
-            android:inputType="textEmailAddress"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_marginBottom="12dp" />
-
         <!-- First Name -->
         <EditText
             android:id="@+id/firstNameText"
@@ -76,7 +41,7 @@
             android:layout_height="wrap_content"
             android:hint="First Name"
             android:padding="12dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginBottom="12dp" />
 
@@ -88,9 +53,45 @@
             android:hint="Last Name"
             android:layout_marginHorizontal="12dp"
             android:padding="12dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginBottom="24dp" />
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/userNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:padding="12dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/emailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:padding="12dp"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginBottom="12dp" />
+
 
         <!-- Sign Up Button -->
         <Button
