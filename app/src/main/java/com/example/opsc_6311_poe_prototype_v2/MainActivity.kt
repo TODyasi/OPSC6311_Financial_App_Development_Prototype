@@ -83,7 +83,7 @@ class MainActivity : ComponentActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Optional: Show error toast
+
             }
         })
     }

@@ -12,11 +12,13 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var usernameText: EditText
     private lateinit var passwordText: EditText
     private lateinit var loginBtn: Button
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var registerButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
         passwordText = findViewById(R.id.passwordText)
         loginBtn = findViewById(R.id.loginBtn)
         sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        registerButton  = findViewById(R.id.btnRegister)
 
         loginBtn.setOnClickListener {
             val username = usernameText.text.toString().trim().lowercase()
@@ -55,6 +58,10 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "Database error: ${error.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+        }
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }
