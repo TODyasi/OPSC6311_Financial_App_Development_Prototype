@@ -14,14 +14,15 @@ class AddCategoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_category_layout)
+        setContentView(R.layout.activity_categories_add)
 
-        val username = intent.getStringExtra("username") ?: run {
+        val username = intent.getStringExtra("username")
+        if (username == null) {
             finish()
             return
         }
 
-        addCategoryBtn = findViewById(R.id.addCategoryButtonPress)
+        addCategoryBtn = findViewById(R.id.addCategoryBtn)
         editCategoryName = findViewById(R.id.categoryNameEditText)
 
         addCategoryBtn.setOnClickListener {
@@ -37,7 +38,8 @@ class AddCategoryActivity : AppCompatActivity() {
 
             // Check for duplicate category
             categoriesRef.orderByChild("categoryName").equalTo(categoryName)
-                .get().addOnSuccessListener { snapshot ->
+                .get()
+                .addOnSuccessListener { snapshot ->
                     if (snapshot.exists()) {
                         Toast.makeText(this, "Category '$categoryName' already exists", Toast.LENGTH_SHORT).show()
                     } else {
@@ -54,7 +56,8 @@ class AddCategoryActivity : AppCompatActivity() {
                                 Toast.makeText(this, "Failed to add category: ${it.message}", Toast.LENGTH_SHORT).show()
                             }
                     }
-                }.addOnFailureListener {
+                }
+                .addOnFailureListener {
                     Toast.makeText(this, "Failed to check category: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }

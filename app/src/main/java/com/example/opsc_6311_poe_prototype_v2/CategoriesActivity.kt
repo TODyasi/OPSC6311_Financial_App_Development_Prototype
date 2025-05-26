@@ -6,16 +6,17 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 class CategoriesActivity : AppCompatActivity() {
-
-
+    private lateinit var goToAddCategories : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_category_management)
+        setContentView(R.layout.activity_categories)
+        val username = intent.getStringExtra("username") ?: ""
 
 
-        val goToAddCategory = findViewById<Button>(R.id.goToAddCategoryBtn)
-        goToAddCategory.setOnClickListener{
+        goToAddCategories = findViewById(R.id.goToAddCategoryBtn)
+        goToAddCategories.setOnClickListener{
             val intent = Intent(this, AddCategoryActivity::class.java )
+            intent.putExtra("username", username)
             startActivity(intent)
         }
 
