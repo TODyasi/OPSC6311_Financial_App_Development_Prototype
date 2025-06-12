@@ -63,7 +63,6 @@ class MainActivity : ComponentActivity() {
             intent.putExtra("username", username)
             startActivity(intent)
         }
-
     }
 
     private fun fetchExpenses(username: String) {
