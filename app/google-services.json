@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "713858658917",
-    "project_id": "opsc-budget-tracker-app",
-    "storage_bucket": "opsc-budget-tracker-app.firebasestorage.app"
+    "project_number": "808740854398",
+    "project_id": "opscpoe-bugdettracker-database",
+    "storage_bucket": "opscpoe-bugdettracker-database.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:713858658917:android:3babd4ae84b15d8a300c8c",
+        "mobilesdk_app_id": "1:808740854398:android:8bf0bad474a6cd15e8562f",
         "android_client_info": {
           "package_name": "com.example.opsc_6311_poe_prototype_v2"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC4NH21_bYxhkx9fuClu_CeGMM0IDW1iAE"
+          "current_key": "AIzaSyAf_tPvoAtST1enbjZF-tnsMZtN7CYF4Sw"
         }
       ],
       "services": {

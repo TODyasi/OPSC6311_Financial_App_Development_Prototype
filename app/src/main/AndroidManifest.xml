@@ -26,9 +26,11 @@
         <activity android:name=".ManageBudgetActivity"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".FilterExpensesActivity"/>
         <activity android:name=".CategoriesActivity"/>
         <activity android:name=".AddCategoryActivity"/>
         <activity android:name=".AddExpenseActivity"/>
+        <activity android:name=".AnalysisActivity"/>
         <activity android:name=".AddMonthlyBudgetActivity"/>
     </application>
 

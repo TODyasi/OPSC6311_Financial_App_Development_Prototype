@@ -10,43 +10,40 @@ import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var editEmail: EditText
-    lateinit var btnRegister: Button
-    lateinit var editFirstName: EditText
-    lateinit var editLastName: EditText
-    lateinit var editPassword: EditText
-    lateinit var editUserName: EditText
+    private lateinit var editFirstName: EditText
+    private lateinit var editLastName: EditText
+    private lateinit var editUserName: EditText
+    private lateinit var editPassword: EditText
+    private lateinit var editEmail: EditText
+    private lateinit var btnRegister: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        editPassword = findViewById(R.id.passwordText)
         editFirstName = findViewById(R.id.firstNameText)
-        editEmail = findViewById(R.id.emailText)
         editLastName = findViewById(R.id.lastNameText)
         editUserName = findViewById(R.id.userNameText)
+        editPassword = findViewById(R.id.passwordText)
+        editEmail = findViewById(R.id.emailText)
         btnRegister = findViewById(R.id.registrationBtn)
 
         btnRegister.setOnClickListener {
             val firstName = editFirstName.text.toString().trim()
             val lastName = editLastName.text.toString().trim()
+            val username = editUserName.text.toString().trim()
             val password = editPassword.text.toString().trim()
-            val userName = editUserName.text.toString().trim()
             val email = editEmail.text.toString().trim()
 
-            // Validate that none of the fields are empty
-            if (firstName.isEmpty() || lastName.isEmpty() || password.isEmpty() || userName.isEmpty() || email.isEmpty()) {
+            if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty() || email.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val user = User(firstName, lastName, password, userName, email)
+            val user = User(firstName, lastName, password, username, email)
+            val db = FirebaseDatabase.getInstance().getReference("users")
 
-            val db = FirebaseDatabase.getInstance()
-            val ref = db.getReference("users")
-
-            ref.child(user.userName).setValue(user)
+            db.child(username).setValue(user)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
@@ -58,6 +55,5 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
         }
-
     }
 }

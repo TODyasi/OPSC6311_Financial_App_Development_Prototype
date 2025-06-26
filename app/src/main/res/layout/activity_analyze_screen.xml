@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="#1B3BA2"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Analyze"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        android:textColor="#0033CC"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/tvSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select date to filter"
+        android:textSize="16sp"
+        android:textColor="#0033CC"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        android:layout_marginTop="16dp"/>
+
+
+
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FROM"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvSelectDate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/tvTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TO"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="@id/tvFrom"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="24dp"/>
+
+    <ImageView
+        android:id="@+id/ivFromCal"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_my_calendar"
+        app:layout_constraintTop_toBottomOf="@id/tvFrom"
+        app:layout_constraintStart_toStartOf="@id/tvFrom"
+        android:layout_marginTop="8dp"/>
+
+    <ImageView
+        android:id="@+id/ivToCal"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_my_calendar"
+        app:layout_constraintTop_toTopOf="@id/ivFromCal"
+        app:layout_constraintEnd_toEndOf="@id/tvTo"/>
+
+    <TextView
+        android:id="@+id/tvArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="→"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="@id/ivFromCal"
+        app:layout_constraintStart_toEndOf="@id/ivFromCal"
+        app:layout_constraintEnd_toStartOf="@id/ivToCal"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <EditText
+        android:id="@+id/etFromDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="From"
+        android:textColor="@color/black"
+        android:inputType="date"
+        android:background="@android:drawable/editbox_background"
+        app:layout_constraintTop_toBottomOf="@id/ivFromCal"
+        app:layout_constraintStart_toStartOf="@id/ivFromCal"
+        app:layout_constraintEnd_toStartOf="@id/etToDate"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <EditText
+        android:id="@+id/etToDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:hint="To"
+        android:inputType="date"
+        android:background="@android:drawable/editbox_background"
+        app:layout_constraintTop_toTopOf="@id/etFromDate"
+        app:layout_constraintEnd_toEndOf="@id/ivToCal"
+        app:layout_constraintStart_toEndOf="@id/etFromDate"/>
+
+    <Button
+        android:id="@+id/btnFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter"
+        android:backgroundTint="#0033CC"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/etFromDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toBottomOf="@id/btnFilter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@
         android:paddingBottom="80dp">
 
         <LinearLayout
+            android:id="@+id/mainContentLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -53,7 +54,6 @@
 
                 </LinearLayout>
 
-
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -62,8 +62,8 @@
                     android:scaleType="centerCrop"
                     android:layout_weight="1" />
 
-
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -80,7 +80,6 @@
                 android:layout_marginBottom="5mm">
 
                 <LinearLayout
-                    android:id="@+id/categoriesSection_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -103,6 +102,7 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:textColor="#1B3D8B" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -117,6 +117,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textColor="@color/light_blue" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
@@ -124,11 +125,13 @@
                 android:layout_marginBottom="2mm"
                 android:background="@color/blue" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview"
+            <!-- Container for expenses -->
+            <LinearLayout
+                android:id="@+id/recentExpensesLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp"/>
+                android:orientation="vertical"
+                android:textColor="@color/black"/>
 
         </LinearLayout>
     </ScrollView>
@@ -144,8 +147,29 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/goToHome"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Home"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/goToCategoriesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="CATEGORIES"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+        <Button
             android:id="@+id/goToManageBudgetBtn"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="BUDGET"
@@ -155,33 +179,22 @@
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/goToCategoriesBtn"
-            android:layout_width="0dp"
+            android:id="@+id/goToAnalysisBtn"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="CATEGORIES"
+            android:text="Analysis"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/goToRegistrationBtn"
-            android:layout_width="0dp"
+            android:id="@+id/logOutBtn"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="REGISTER"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:background="@android:color/transparent" />
-
-        <Button
-            android:id="@+id/goToLoginBtn"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="LOGIN"
+            android:text="LOGOUT"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="#FFFFFF"

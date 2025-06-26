@@ -14,7 +14,7 @@ class AddExpenseActivity : AppCompatActivity() {
     private lateinit var dropdown: Spinner
     private lateinit var selectDateText: TextView
     private lateinit var addExpenseBtn: Button
-    private var selectedDate: String = ""
+    private lateinit var selectedDate: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +81,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 categoryName = category,
                 expenseAmount = amount,
                 expenseDescription = description,
-                date = parsedDate
+                date = selectedDate
             )
 
             val db = FirebaseDatabase.getInstance()
@@ -123,7 +123,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 for (child in snapshot.children) {
                     val category = child.getValue(Catagories::class.java)
                     if (category != null) {
-                        categoryNames.add(category.categoryName)
+                        category.categoryName?.let { categoryNames.add(it) }
                     }
                 }
                 val adapter = ArrayAdapter(this@AddExpenseActivity, android.R.layout.simple_spinner_item, categoryNames)

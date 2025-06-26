@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="#1B3BA2"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/budgetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Budget"
+        android:textColor="@color/light_blue"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/setBudgetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:text="Set Budget"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:layout_marginBottom="10sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/budgetAmountFieldText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:text="Set Budget"
+        android:textColor="@color/light_blue"
+        android:layout_marginBottom="7dp"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/budgetAmountEditText"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Enter budget amount eg. R5000"
+        android:padding="12dp"
+        android:background="@drawable/textfield_with_border"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        android:layout_marginLeft="10dp"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/setBudgetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:backgroundTint="#0033CC"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/selectCategoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="7dp"
+        android:gravity="left"
+        android:text="Select Category"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        >
+        <Button
+            android:id="@+id/addCategoryLimitBtn"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#0033CC"
+            android:layout_marginRight="5dp"
+            android:text="+"
+            android:textColor="@android:color/white" />
+        <!-- OVERLAY: Add Category Modal -->
+        <include
+            android:id="@+id/addCategoryOverlay"
+            layout="@layout/dialog_add_category_limit"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/addCategoryFieldText"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text="Set Category limit"
+            android:textColor="@color/light_blue"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/categoryDisplayContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+    </LinearLayout>
+
+
+</LinearLayout>

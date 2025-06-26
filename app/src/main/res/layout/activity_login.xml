@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="264dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/login_pic" />
+            android:src="@drawable/logo_picture" />
 
         <!-- Login form section -->
         <androidx.cardview.widget.CardView
@@ -79,14 +79,6 @@
             android:layout_marginBottom="8dp" />
 
         <!-- Forgot Password -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Forgot Password"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"/>
 
         <!-- Sign up link -->
             <Button
@@ -95,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="Don't have an account? Click here"
                 android:textColor="@android:color/white"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 android:background="@android:color/transparent"
                 android:layout_gravity="center"
                 android:layout_marginBottom="16dp"/>

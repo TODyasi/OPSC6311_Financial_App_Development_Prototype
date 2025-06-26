@@ -1,49 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/categoryManagementLayout"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootFrame"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_horizontal"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent">
 
-    <!-- Title -->
-    <TextView
-        android:id="@+id/categoryManagementTitle_TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categories"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp" />
-
-    <!-- Add Category Button + Label -->
-    <Button
-        android:id="@+id/goToAddCategoryBtn"
+    <!-- Main Scrollable Content -->
+    <ScrollView
+        android:id="@+id/categoryManagementLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add New Category"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#2196F3"
-        android:layout_marginBottom="24dp" />
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:padding="24dp">
 
-    <!-- Category List Placeholder -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/categoryContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Show categories here"
-            android:textSize="18sp"
-            android:textColor="#333333" />
-    </androidx.cardview.widget.CardView>
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-</LinearLayout>
+            <!-- Title -->
+            <TextView
+                android:id="@+id/categoryManagementTitle_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Add Category Button -->
+            <Button
+                android:id="@+id/goToAddCategoryBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add New Category"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2196F3"
+                android:layout_marginBottom="24dp" />
+
+            <!-- List -->
+            <LinearLayout
+                android:id="@+id/categoryListLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- OVERLAY: Add Category Modal -->
+    <include
+        android:id="@+id/addCategoryOverlay"
+        layout="@layout/activity_categories_add"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation_buttons"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#1B3D8B"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/goToHome"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Home"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/goToCategoriesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="CATEGORIES"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+        <Button
+            android:id="@+id/goToManageBudgetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="BUDGET"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/goToAnalysisBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Analysis"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/logOutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="LOGOUT"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+
+</FrameLayout>
+

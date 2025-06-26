@@ -1,27 +1,25 @@
 package com.example.opsc_6311_poe_prototype_v2
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.Button
+import android.widget.*
 import androidx.activity.ComponentActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
 class MainActivity : ComponentActivity() {
-    private lateinit var expenses: ArrayList<Expenses>
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: ExpensesAdapter
+
+    private lateinit var expensesLayout: LinearLayout
     private lateinit var sharedPreferences: SharedPreferences
+    private val expenses = arrayListOf<Expenses>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        expensesLayout = findViewById(R.id.recentExpensesLayout)
         sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
         val username = sharedPreferences.getString("username", null)
 
@@ -31,60 +29,120 @@ class MainActivity : ComponentActivity() {
             return
         }
 
-        // Initialize RecyclerView
-        expenses = arrayListOf()
-        recyclerView = findViewById(R.id.recyclerview)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ExpensesAdapter(expenses)
-        recyclerView.adapter = adapter
+        findViewById<TextView>(R.id.userNameTextView).text = username
 
-        // Fetch expenses from Firebase
         fetchExpenses(username)
 
-        // Navigation buttons
         findViewById<Button>(R.id.goToManageBudgetBtn).setOnClickListener {
-            val intent = Intent(this, ManageBudgetActivity::class.java)
-            intent.putExtra("username", username)
-            startActivity(intent)
+            startActivity(Intent(this, ManageBudgetActivity::class.java).putExtra("username", username))
         }
-
-        findViewById<Button>(R.id.goToRegistrationBtn).setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
-
-        findViewById<Button>(R.id.goToLoginBtn).setOnClickListener {
-            sharedPreferences.edit().remove("username").apply()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+        findViewById<Button>(R.id.goToAnalysisBtn).setOnClickListener {
+            startActivity(Intent(this, AnalysisActivity::class.java).putExtra("username", username))
         }
 
         findViewById<Button>(R.id.goToCategoriesBtn).setOnClickListener {
-            val intent = Intent(this, CategoriesActivity::class.java)
-            intent.putExtra("username", username)
-            startActivity(intent)
+            startActivity(Intent(this, CategoriesActivity::class.java).putExtra("username", username))
+        }
+        findViewById<Button>(R.id.goToHome).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java).putExtra("username", username))
+        }
+
+
+        findViewById<Button>(R.id.logOutBtn).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Are you sure you want to exit the app?")
+                .setPositiveButton("Yes") { _, _ ->
+                    sharedPreferences.edit().remove("username").apply()
+                    finishAffinity()
+                }
+                .setNegativeButton("No", null)
+                .show()
         }
     }
 
     private fun fetchExpenses(username: String) {
         val db = FirebaseDatabase.getInstance()
         val expensesRef = db.getReference("users/$username/Expenses")
+
         expensesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 expenses.clear()
+                expensesLayout.removeAllViews()
+
                 for (child in snapshot.children) {
-                    val expense = child.getValue(Expenses::class.java)
-                    if (expense != null) {
-                        expenses.add(expense)
-                    }
+                    val categoryName = child.child("categoryName").getValue(String::class.java) ?: "Unknown"
+                    val expenseAmount = child.child("expenseAmount").getValue(Double::class.java) ?: 0.0
+                    val expenseDescription = child.child("expenseDescription").getValue(String::class.java) ?: ""
+                    val date = child.child("date").getValue(String::class.java) ?: ""
+
+                    val expense = Expenses(
+                        categoryName = categoryName,
+                        expenseAmount = expenseAmount,
+                        expenseDescription = expenseDescription,
+                        date = date
+                    )
+
+                    expenses.add(expense)
                 }
-                // Sort expenses by date (newest first)
+
                 expenses.sortByDescending { it.date }
-                adapter.notifyDataSetChanged()
+
+                for (expense in expenses) {
+                    addExpenseView(expense)
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                Toast.makeText(this@MainActivity, "Failed to load expenses.", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun addExpenseView(expense: Expenses) {
+        val expenseView = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(16, 16, 16, 16)
+            setBackgroundResource(android.R.drawable.dialog_holo_light_frame)
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(0, 8, 0, 8)
+            }
+            layoutParams = params
+        }
+
+        val descriptionView = TextView(this).apply {
+            text = "Description: ${expense.expenseDescription}"
+            textSize = 16f
+            setTextColor(Color.parseColor("#000000"))
+        }
+        val categoryView = TextView(this).apply{
+            text = "Category: ${expense.categoryName}"
+            textSize = 16f
+            setTextColor(Color.parseColor("#000000"))
+        }
+
+
+        val amountView = TextView(this).apply {
+            text = "Amount: R${expense.expenseAmount}"
+            textSize = 16f
+            setTextColor(Color.parseColor("#000000"))
+        }
+
+        val dateView = TextView(this).apply {
+            text = "Date: ${expense.date}"
+            textSize = 14f
+            setTextColor(Color.parseColor("#000000"))
+        }
+
+
+        expenseView.addView(descriptionView)
+        expenseView.addView(amountView)
+        expenseView.addView(categoryView)
+        expenseView.addView(dateView)
+
+        expensesLayout.addView(expenseView)
     }
 }

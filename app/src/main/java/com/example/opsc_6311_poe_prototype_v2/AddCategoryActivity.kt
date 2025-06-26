@@ -60,6 +60,7 @@ class AddCategoryActivity : AppCompatActivity() {
                 .addOnFailureListener {
                     Toast.makeText(this, "Failed to check category: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
+
         }
     }
 }
